@@ -72,7 +72,7 @@ app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
-  var status = err.status || 400;
+  const status = err.status || 400;
   res.status(status);
 
   // When node request library failed to connect to the URL.
@@ -80,7 +80,7 @@ app.use((err, req, res, next) => {
     err.message = "Oops, something breaks in our end. Try again!";
   }
 
-  var message = err && err.message;
+  const message = err && err.message;
   if (!message) {
     if (status === 404) {
       message = "Not found!";
